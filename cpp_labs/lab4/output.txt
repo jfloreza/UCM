@@ -1,0 +1,17 @@
+Word          Vowels  Const.  Digits Special
+foo                2       1       0       0
+
+baz                1       2       0       0
+
+bar                1       2       0       0
+
+quiddle            3       4       0       0
+
+linux              2       3       0       0
+
+text               1       3       0       0
+
+username3          4       4       1       0
+
+words!             1       4       0       1
+

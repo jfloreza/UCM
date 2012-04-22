@@ -1,0 +1,16 @@
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+template <typename T>
+class Grid
+{ 
+   public:
+	Grid();
+	Grid(int rows, int cols);
+	T getCell(int row, int col);
+   private:
+	T grid[][];
+};

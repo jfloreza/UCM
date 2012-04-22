@@ -1,0 +1,28 @@
+Short Answers:
+1. Overloaded operators can be "non-static member" or non-"member" functions.
+
+2. When overloading an operator, the syntax requires us to use the keyword "operator" followed by the "operator" we are overloading.
+
+3. A copy constructor peforms a "deep" copy of the original object.
+
+Written Exercises:
+
+1. Operator overloading allows a programmer to completely change what operators do according to what the programmer wants.
+
+2. Operator overloading allows a programmer to use a single operator that has been overloaded in order to perform functions that the operator could not have done nomrally.  This allows a programmer to use less lines of code and makes the code reusable.
+
+3. Syntax is class, keyword operator, operator being overloaded, arguments, then code.  An example, using a class called clock, would be:
+
+class Clock
+{
+  Clock operator ++ ()
+    { this->tick() ; return *this; }
+}
+
+where tick(); would be some function.
+
+4. Operator overloading can be done as a member function or non-member function defined outside the class.
+
+5. By defining the operator outside of the class, the lhs and rhs must be passed into it, allowing the usage of two different class, provided that the overloaded operator handles it properly.
+
+6. Some operators are overloaded as non-member functions to allow the programmer to pass two arguments through.

@@ -1,0 +1,66 @@
+#include <cstring>
+#include <string>
+#include <iomanip>
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+
+template <typename T>
+class Grid
+{ 
+   public:
+	Grid();
+	Grid(int rows, int cols);
+	T getCell(int row, int col);
+	void loadFromFile(string filename);
+	void display();
+   private:
+	T grid[20][20];
+	int Nrows, Ncols;
+	int startRow, startCol, goalRow, goalCol;
+};
+
+template <typename T> Grid<T>::Grid() {
+
+}
+
+template <typename T> Grid<T>::Grid(int rows, int cols) {
+	T grid[rows][cols];
+}
+
+template <typename T> T Grid<T>::getCell(int row, int col) { 
+	T x = grid[row][col];
+	return x;
+}
+
+template <typename T> void Grid<T>::loadFromFile(string filename) {
+	
+ifstream infile(filename.c_str());
+char c;
+int i, j;
+
+for (i = 0; i < 9; i++) {
+	for (j = 0; j < 7; j++) {
+		infile >> c;
+		while( (c==' ') || (c=='\t') || (c == '\n'));
+		switch(c) {
+			case'.': grid[i][j] = T(true); break;
+			case'#': grid[i][j] = T(false); break;
+			case'S': grid[i][j] = T(true); startRow = i; startCol = j; break;
+			case'G': grid[i][j] = T(true); goalRow = i; goalCol = j; break;
+			default : cerr << "invalid character in maze" << endl;
+			}
+		}
+	}
+}
+
+template <typename T> void Grid<T>::display() {
+	int i, j;
+	for (i = 0; i < 9; i++) {
+		for (j = 0; j < 7; j++) {
+			if (j == 6){cout << grid[i][j] << " " << endl;}
+			else cout << grid[i][j] << " ";
+		}
+	}
+}
